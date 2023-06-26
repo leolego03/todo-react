@@ -62,17 +62,21 @@ function TodoCreate() {
 
   const onSubmit = e => {
     e.preventDefault(); // 새로고침 방지
-    dispatch({
-      type: 'CREATE',
-      todo: {
-        id: nextId.current,
-        text: value,
-        content: content,
-        done: false
-      }
-    });
-    setValue('');
-    nextId.current += 1;
+    
+    if(value && content) {
+      dispatch({
+        type: 'CREATE',
+        todo: {
+          id: nextId.current,
+          text: value,
+          content: content,
+          done: false
+        }
+      });
+      setValue('');
+      setContent('');
+      nextId.current += 1;
+    }
   };
 
   return (

@@ -44,8 +44,11 @@ const CheckCircle = styled.div`
     `}
 `;
 
-const Text = styled.div`
+const TextContainer = styled.div`
   flex: 1;
+`;
+
+const Text = styled.div`
   font-size: 16px;
   color: #495057;
   ${props =>
@@ -59,13 +62,16 @@ function TodoItem({ id, done, text, content }) {
   const dispatch = useTodoDispatch();
   const onToggle = () => dispatch({ type: 'TOGGLE', id });
   const onRemove = () => dispatch({ type: 'REMOVE', id });
+
   return (
     <TodoItemBlock>
       <CheckCircle $done={done} onClick={onToggle}>
         {done && <MdDone />}
       </CheckCircle>
-      <Text $done={done}>{text}</Text>
-      <Text $done={done}>{content}</Text>
+      <TextContainer>
+        <Text $done={done}>{text}</Text>
+        <Text $done={done}>{content}</Text>
+      </TextContainer>
       <Remove onClick={onRemove}>
         <MdDelete />
       </Remove>
