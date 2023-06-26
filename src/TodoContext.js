@@ -4,21 +4,25 @@ const initialTodos = [
   {
     id: 1,
     text: '리액트 세팅하기',
+    content: '투두 내용입니다!',
     done: true
   },
   {
     id: 2,
     text: 'JSX 마크업하기',
+    content: '투두 내용입니다!',
     done: true
   },
   {
     id: 3,
     text: '컴포넌트 스타일링하기',
+    content: '투두 내용입니다!',
     done: false
   },
   {
     id: 4,
     text: 'Context 만들기',
+    content: '투두 내용입니다!',
     done: false
   }
 ];

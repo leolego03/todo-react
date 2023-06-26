@@ -55,7 +55,7 @@ const Text = styled.div`
     `}
 `;
 
-function TodoItem({ id, done, text }) {
+function TodoItem({ id, done, text, content }) {
   const dispatch = useTodoDispatch();
   const onToggle = () => dispatch({ type: 'TOGGLE', id });
   const onRemove = () => dispatch({ type: 'REMOVE', id });
@@ -65,6 +65,7 @@ function TodoItem({ id, done, text }) {
         {done && <MdDone />}
       </CheckCircle>
       <Text $done={done}>{text}</Text>
+      <Text $done={done}>{content}</Text>
       <Remove onClick={onRemove}>
         <MdDelete />
       </Remove>

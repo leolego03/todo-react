@@ -19,6 +19,7 @@ function TodoList() {
           key={todo.id}
           id={todo.id}
           text={todo.text}
+          content={todo.content}
           done={todo.done}
         />
       ))}

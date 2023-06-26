@@ -19,6 +19,7 @@ const InsertForm = styled.form`
 `;
 
 const Input = styled.input`
+  margin-bottom: 10px;
   border-radius: 4px;
   border: 1px solid #dee2e6;
   width: 100%;
@@ -29,7 +30,6 @@ const Input = styled.input`
 `;
 
 const Button = styled.button`
-  margin-top: 10px;
   background: #ffb700;
   &:hover {
     background: #ffc800;
@@ -52,11 +52,14 @@ const Button = styled.button`
 
 function TodoCreate() {
   const [value, setValue] = useState('');
+  const [content, setContent] = useState('');
 
   const dispatch = useTodoDispatch();
   const nextId = useTodoNextId();
 
   const onChange = e => setValue(e.target.value);
+  const onChangeContent = e => setContent(e.target.value);
+
   const onSubmit = e => {
     e.preventDefault(); // 새로고침 방지
     dispatch({
@@ -64,6 +67,7 @@ function TodoCreate() {
       todo: {
         id: nextId.current,
         text: value,
+        content: content,
         done: false
       }
     });
@@ -80,6 +84,12 @@ function TodoCreate() {
             placeholder="제목을 입력하세요"
             onChange={onChange}
             value={value}
+          />
+          <Input
+            autoFocus
+            placeholder="내용을 입력하세요"
+            onChange={onChangeContent}
+            value={content}
           />
           <Button type="submit">
             추가하기
