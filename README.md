@@ -10,4 +10,4 @@ Todo web application
   + React
 
 #### Design
-![todo-react-display](./images-readme/todo-react-display.png)
+![todo-react-design](./images-readme/todo-react-design.png)
