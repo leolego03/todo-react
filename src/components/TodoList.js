@@ -18,8 +18,8 @@ const TodoListBlock = styled.div`
 
 function TodoList() {
   const todos = useTodoState();
-  const doneTodos = todos.filter(todo => todo.done === true);
-  const unDoneTodos = todos.filter(todo => todo.done === false);
+  const doneTodos = todos.filter(todo => todo.isDone === true);
+  const unDoneTodos = todos.filter(todo => todo.isDone === false);
 
   return (
     <>
@@ -29,9 +29,9 @@ function TodoList() {
           <TodoItem
             key={todo.id}
             id={todo.id}
-            text={todo.text}
+            title={todo.title}
             content={todo.content}
-            done={todo.done}
+            isDone={todo.isDone}
           />
         ))}
       </TodoListBlock>
@@ -42,9 +42,9 @@ function TodoList() {
           <TodoItem
             key={todo.id}
             id={todo.id}
-            text={todo.text}
+            title={todo.title}
             content={todo.content}
-            done={todo.done}
+            isDone={todo.isDone}
           />
         ))}
       </TodoListBlock>

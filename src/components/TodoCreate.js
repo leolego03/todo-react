@@ -51,29 +51,29 @@ const Button = styled.button`
 `
 
 function TodoCreate() {
-  const [value, setValue] = useState('');
+  const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
 
   const dispatch = useTodoDispatch();
   const nextId = useTodoNextId();
 
-  const onChange = e => setValue(e.target.value);
+  const onChangeTitle = e => setTitle(e.target.value);
   const onChangeContent = e => setContent(e.target.value);
 
   const onSubmit = e => {
     e.preventDefault(); // 새로고침 방지
     
-    if(value && content) {
+    if(title && content) {
       dispatch({
         type: 'CREATE',
         todo: {
           id: nextId.current,
-          text: value,
+          title: title,
           content: content,
-          done: false
+          isDone: false
         }
       });
-      setValue('');
+      setTitle('');
       setContent('');
       nextId.current += 1;
     }
@@ -86,8 +86,8 @@ function TodoCreate() {
           <Input
             autoFocus
             placeholder="제목을 입력하세요"
-            onChange={onChange}
-            value={value}
+            onChange={onChangeTitle}
+            value={title}
           />
           <Input
             autoFocus
